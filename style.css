@@ -1,0 +1,268 @@
+/* CSS Gradient Background */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(-45deg, #f18361, #d45686, #16a3d6, #23d55e);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    text-align: center;
+    font-family: 'Source Code Pro', monospace;
+    color: white;
+    overflow: overlay;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* Falling Stars Background */
+
+.lines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    margin: auto;
+    width: 100%;
+}
+
+.line {
+    position: fixed;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.line::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 15vh;
+    width: 100%;
+    top: -50%;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+    animation: drop 5s 0s infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+}
+
+.line:nth-child(1) {
+    margin-left: -25%
+}
+
+.line:nth-child(1)::after {
+    animation-delay: 1.5s
+}
+
+.line:nth-child(3) {
+    margin-left: 25%
+}
+
+.line:nth-child(3)::after {
+    animation-delay: 2s
+}
+
+@keyframes drop {
+    0% {
+        top: -50%
+    }
+    100% {
+        top: 110%
+    }
+}
+
+
+/* Start Here */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 100px;
+    border-radius: 10px;
+    background: rgba(25, 102, 138, 0.493);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(25, 102, 138, 0.7)
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    margin-top: 50px;
+}
+
+#navigate {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    display: flex;
+    row-gap: 20px;
+    justify-content: space-between;
+    top: 0;
+    padding: 0;
+    min-height: 50px;
+    width: 100%;
+    transition: top 0.3s;
+    font-size: larger;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+}
+
+.navbar-brand {
+    margin-left: 20px;
+}
+
+.nav-item {
+    text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+    .navbar-nav {
+        position: absolute;
+        left: 56vw;
+    }
+    .nav-item {
+        min-width: 11vw;
+    }
+}
+
+.nav-item :hover {
+    background-color: rgba(0, 0, 0, 0.685);
+}
+
+.cursor::after {
+    height: 24px;
+    width: 13px;
+    content: '';
+    display: inline-block;
+    margin-left: 3px;
+    background-color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    49% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.space {
+    position: relative;
+    height: 250px;
+}
+
+#Home {
+    position: relative;
+    top: 50px;
+    padding-top: 20rem;
+    padding-bottom: 20rem;
+}
+
+#About {
+    padding-top: 10rem;
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+}
+
+.fade-in.appear {
+    opacity: 1;
+}
+
+.avatar {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: drop-shadow(20px 15px 15px black);
+}
+
+h4 {
+    text-align: justify;
+}
+
+.content_img {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.content_img div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    vertical-align: middle;
+    background: rgba(0, 0, 0, 0.541);
+    color: white;
+    margin-bottom: 5px;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: visibility 0s, opacity 0.5s linear;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.content_img:hover {
+    cursor: pointer;
+}
+
+.content_img:hover div {
+    padding: 15px 15px;
+    visibility: visible;
+    opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+    .container-small {
+        width: 300px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container-small {
+        width: 500px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-small {
+        width: 700px;
+    }
+}
+
+.container-small {
+    margin: auto;
+    max-width: 100%;
+}
